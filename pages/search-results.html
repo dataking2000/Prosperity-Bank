@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | Prosperity Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/main.js"></script>
+    <style>
+        .search-results-section {
+            padding: 40px 0;
+            min-height: 60vh;
+        }
+        
+        .search-input-box {
+            display: flex;
+            margin-bottom: 40px;
+        }
+        
+        .search-input-box input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            font-size: 1.1rem;
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 6px 0 0 6px;
+        }
+        
+        .search-input-box button {
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+        }
+
+        .result-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-item h3 a {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .result-item h3 a:hover {
+            color: var(--secondary-color);
+        }
+
+        .result-url {
+            color: #008000;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .result-snippet {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-money-bill-wave logo-icon"></i>
+                    <span class="logo-text">Pros<span>perity</span>Bank</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <div class="nav-left">
+                        <a href="../index.html" class="nav-link">Home</a>
+                        <a href="./personal-banking.html" class="nav-link">Personal</a>
+                        <a href="./business-banking.html" class="nav-link">Business</a>
+                        <a href="./wealth-management.html" class="nav-link">Wealth Management</a>
+                        <a href="./about.html" class="nav-link">About Us</a>
+                    </div>
+                    
+                    <div class="nav-right">
+                        <button class="btn-search"><i class="fas fa-search"></i></button>
+                        <a href="./login.html" class="btn btn-outline">Sign In</a>
+                        <a href="./enroll.html" class="btn btn-secondary">Enroll Now</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times" style="display: none;"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content-page">
+        <section class="search-results-section container">
+            <h1 class="section-title">Search Results for: <span id="searchTerm" class="secondary-color">"..."</span></h1>
+            <p class="section-subtitle" id="resultCount">Showing 4 results.</p>
+
+            <div class="search-input-box">
+                <input type="text" id="newSearchInput" placeholder="Search again...">
+                <button id="newSearchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+
+            <div id="resultsList">
+                <div class="result-item">
+                    <h3><a href="security.html">Security Center & Fraud Protection</a></h3>
+                    <span class="result-url">prosperitybank.com/pages/security.html</span>
+                    <p class="result-snippet">Learn about our Zero Liability Guarantee, two-factor authentication, and how to report fraud immediately. Your safety is our foundation.</p>
+                </div>
+                
+                <div class="result-item">
+                    <h3><a href="personal-banking.html#checking">Compare Checking Accounts</a></h3>
+                    <span class="result-url">prosperitybank.com/pages/personal-banking.html</span>
+                    <p class="result-snippet">View fees, minimum balances, and benefits for the Advantage Banking suite, including the no monthly fee account option.</p>
+                </div>
+
+                <div class="result-item">
+                    <h3><a href="digital-banking.html">Mobile Banking and Zelle</a></h3>
+                    <span class="result-url">prosperitybank.com/pages/digital-banking.html</span>
+                    <p class="result-snippet">Enroll in the Prosperity Bank Mobile App to deposit checks, pay bills, and use Zelle to send money to friends and family.</p>
+                </div>
+                
+                <div class="result-item">
+                    <h3><a href="contact-support.html#faq">Frequently Asked Questions (FAQ)</a></h3>
+                    <span class="result-url">prosperitybank.com/pages/contact-support.html</span>
+                    <p class="result-snippet">Find quick answers to questions about ATM fees, replacing a lost card, and setting up direct deposit.</p>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-brand">
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-money-bill-wave logo-icon"></i>
+                        <span class="logo-text">Pros<span>perity</span>Bank</span>
+                    </a>
+                    <p>Helping make financial lives better through the power of every connection. Contact us today.</p>
+                    <a href="tel:+1 (773) 677-0845" class="footer-contact-link"><i class="fas fa-phone"></i> +1 (773) 677-0845</a>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Products & Services</h4>
+                    <ul>
+                        <li><a href="./personal-banking.html">Personal Banking</a></li>
+                        <li><a href="./business-banking.html">Business Services</a></li>
+                        <li><a href="./wealth-management.html">Merrill Lynch Investments</a></li>
+                        <li><a href="./personal-banking.html#credit-cards">Credit Cards</a></li>
+                        <li><a href="./personal-banking.html#loans">Home & Auto Loans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support & Legal</h4>
+                    <ul>
+                        <li><a href="./contact-support.html">Contact & FAQ</a></li>
+                        <li><a href="./security.html">Security Center</a></li>
+                        <li><a href="./404.html">Branch/ATM Locator</a></li>
+                        <li><a href="#">Privacy Notice</a></li>
+                        <li><a href="#">Online Access Agreement</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>About Prosperity Bank</h4>
+                    <ul>
+                        <li><a href="./about.html">Our History</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News & Press</a></li>
+                        <li><a href="#">Community Initiatives</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="disclosures">
+                    <p>Prosperity Bank, N.A. Member FDIC. Equal Housing Lender. © 2008 Prosperity Bank Corporation. All rights reserved.</p>
+                    <div class="compliance-icons">
+                        <span title="FDIC Insured"><i class="fas fa-landmark"></i> FDIC Insured</span>
+                        <span title="Equal Housing Lender"><i class="fas fa-home"></i> Equal Housing Lender</span>
+                        <span title="Secure Banking"><i class="fas fa-lock"></i> Secure Banking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="assistant-btn" id="assistantBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="assistant-modal" id="assistantModal">
+        <div class="assistant-header">
+            <h4><i class="fas fa-comment-dots"></i> Talk to Erica</h4>
+            <button class="chat-close-btn" id="chatCloseBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="assistant-body" id="assistantBody">
+            <div class="assistant-message bot">Hello! I'm Erica, your virtual financial assistant. How can I help you today?</div>
+        </div>
+        <div class="assistant-footer">
+            <input type="text" id="chatInput" placeholder="Ask a question..." required>
+            <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-header">
+                <h3>Search Prosperity Bank</h3>
+                <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); window.location.href = './search-results.html?query=' + document.getElementById('searchModalInput').value;" class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="What are you looking for? (e.g., ESG goals, mortgage rates)" id="searchModalInput">
+            </form>
+            <div class="search-suggestions">
+                <h4>Popular Searches</h4>
+                <a href="./digital-banking.html">Mobile banking app</a>
+                <a href="./personal-banking.html#credit-cards">Credit card offers</a>
+                <a href="./personal-banking.html#loans">Mortgage rates</a>
+                <a href="./wealth-management.html">Investment accounts</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-menu">
+            <a href="../index.html" class="nav-link">Home</a>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-user"></i> Personal <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./personal-banking.html#checking">Checking & Savings</a>
+                    <a href="./personal-banking.html#credit-cards">Credit Cards</a>
+                    <a href="./personal-banking.html#loans">Home & Auto Loans</a>
+                    <a href="./personal-banking.html#calculator">Mortgage Calculator</a>
+                </div>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-briefcase"></i> Business <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./business-banking.html#checking">Business Accounts</a>
+                    <a href="./business-banking.html#loans">Business Loans</a>
+                    <a href="./business-banking.html#merchant">Merchant Services</a>
+                </div>
+            </div>
+
+            <a href="./wealth-management.html" class="nav-link"><i class="fas fa-chart-line"></i> Wealth Management</a>
+            <a href="./digital-banking.html" class="nav-link"><i class="fas fa-mobile-alt"></i> Digital Banking</a>
+            <a href="./about.html" class="nav-link"><i class="fas fa-building"></i> About Us</a>
+            <a href="./security.html" class="nav-link"><i class="fas fa-shield-alt"></i> Security Center</a>
+        </div>
+        <div class="mobile-nav-right">
+            <a href="./login.html" class="btn btn-outline btn-full-width">Sign In</a>
+            <a href="./enroll.html" class="btn btn-secondary btn-full-width">Enroll Now</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Page specific script to parse URL query and display it
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+            const searchTermSpan = document.getElementById('searchTerm');
+            
+            if (query) {
+                searchTermSpan.textContent = `"${decodeURIComponent(query)}"`;
+                document.getElementById('newSearchInput').value = decodeURIComponent(query);
+            } else {
+                searchTermSpan.textContent = "Your Search";
+            }
+            
+            // Re-implement search logic for the input box on this page
+            const newSearchInput = document.getElementById('newSearchInput');
+            const newSearchBtn = document.getElementById('newSearchBtn');
+            const handleSearch = () => {
+                const newQuery = newSearchInput.value.trim();
+                if (newQuery) {
+                    window.location.href = `search-results.html?query=${encodeURIComponent(newQuery)}`;
+                }
+            };
+
+            newSearchBtn.addEventListener('click', handleSearch);
+            newSearchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

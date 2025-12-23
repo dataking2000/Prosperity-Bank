@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll in Online Banking | Prosperity Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/main.js"></script>
+     </head>
+<body class="auth-page">
+
+    <header class="auth-header">
+        <div class="container auth-nav">
+            <a href="../index.html" class="auth-logo">
+                <i class="fas fa-money-bill-wave logo-icon" style="color: var(--secondary-color);"></i>
+                Pros<span>perity</span>Bank
+            </a>
+            <a href="./login.html" class="auth-link">Already Enrolled? Sign In</a>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <h1>New User Enrollment</h1>
+            
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+            </div>
+            
+            <form id="enrollmentForm">
+                
+                <div class="enroll-step-content" id="step1">
+                    <h3 class="primary-color mb-3">Step 1: Verify Your Identity</h3>
+                    <p class="mb-3">Please provide information associated with your account.</p>
+                    <div class="form-group">
+                        <label for="accountNum">Account Number or Card Number</label>
+                        <input type="text" id="accountNum" class="form-control form-control-lg" placeholder="e.g., Checking or Credit Card number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ssnLast4">Last 4 Digits of SSN</label>
+                        <input type="text" id="ssnLast4" class="form-control form-control-lg" placeholder="XXXX" maxlength="4" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zipCode">Zip Code</label>
+                        <input type="text" id="zipCode" class="form-control form-control-lg" placeholder="5-digit Zip Code" maxlength="5" required>
+                    </div>
+                </div>
+
+                <div class="enroll-step-content" id="step2" style="display: none;">
+                    <h3 class="primary-color mb-3">Step 2: Create Your Credentials</h3>
+                    <p class="mb-3">Choose a secure Online ID and Passcode.</p>
+                    <div class="form-group">
+                        <label for="newUserId">Choose Online ID</label>
+                        <input type="text" id="newUserId" class="form-control form-control-lg" placeholder="e.g., BofAUser123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPass">Choose Passcode</label>
+                        <input type="password" id="newPass" class="form-control form-control-lg" placeholder="Minimum 8 characters" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPass">Confirm Passcode</label>
+                        <input type="password" id="confirmPass" class="form-control form-control-lg" placeholder="Re-enter Passcode" required>
+                    </div>
+                </div>
+                
+                <div class="enroll-step-content" id="step3" style="display: none;">
+                    <h3 class="primary-color mb-3">Step 3: Review and Agree</h3>
+                    <p class="mb-3">Please review the Online Access Agreement.</p>
+                    <div style="border: 1px solid var(--border-color); padding: 15px; height: 150px; overflow-y: scroll; font-size: 0.85rem; background-color: var(--light-color);">
+                        <p style="font-weight: 600;">Prosperity Bank Online Access Agreement (Summary)</p>
+                        <p>By clicking "Submit," you agree to the terms and conditions outlined in the Prosperity Bank Online Access Agreement, which govern your use of Online and Mobile Banking services.</p>
+                        <p>Key terms include: Electronic Communications Consent, Zero Liability Fraud Protection, and Terms of Use. Please review the full legal document linked in the footer before proceeding.</p>
+                        <p>This is a mock-up summary. For real banking, always read the full agreement.</p>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <label for="agreeTerms">I have read and agree to the Online Access Agreement.</label>
+                    </div>
+                </div>
+
+                <div class="enroll-step-content enrollment-success" id="step4" style="display: none;">
+                    <i class="fas fa-check-circle secondary-color"></i>
+                    <h3 class="section-title">Enrollment Complete!</h3>
+                    <p>Congratulations! You are now enrolled in Prosperity Bank Online Banking.</p>
+                    <p>You can now use your new **Online ID** and **Passcode** to sign in.</p>
+                    <a href="./login.html" class="btn btn-secondary btn-lg mt-4"><i class="fas fa-sign-in-alt"></i> Go to Sign In</a>
+                </div>
+
+                <div class="step-buttons" id="navButtons">
+                    <button type="button" class="btn btn-outline-dark" id="prevStep" style="display: none;"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextStep">Next <i class="fas fa-arrow-right"></i></button>
+                    <button type="submit" class="btn btn-secondary" id="submitEnrollment" style="display: none;"><i class="fas fa-check"></i> Submit Enrollment</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer" style="padding: 20px 0;">
+        <div class="container text-center">
+            <p class="disclosures">
+                Prosperity Bank, N.A. Member FDIC. Equal Housing Lender. © 2008 Prosperity Bank Corporation. <span class="primary-color">Security</span> | <span class="primary-color">Privacy</span>
+            </p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

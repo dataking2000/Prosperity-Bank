@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out | Prosperity Bank</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/main.js"></script>
+    
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="text-align: center; padding: 40px; background: white; border-radius: 10px; box-shadow: var(--shadow-heavy);">
+            <i class="fas fa-sign-out-alt" style="font-size: 4rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
+            <h2>Logging Out...</h2>
+            <p>You are being signed out of your account.</p>
+            <div class="spinner-border text-primary mt-3" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Clear all auth data
+        localStorage.removeItem('pb_isLoggedIn');
+        localStorage.removeItem('pb_username');
+        localStorage.removeItem('pb_currentUser');
+        
+        // Redirect to home page after 2 seconds
+        setTimeout(() => {
+            window.location.href = '../index.html';
+        }, 2000);
+    </script>
+</body>
+</html>

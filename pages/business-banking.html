@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Banking | Small Business, Commercial, and Corporate Services | Prosperity Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/main.js"></script>
+    <style>
+        /* Define the hero image for this specific page */
+        .business-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), 
+                              url('https://images.unsplash.com/photo-1549419163-f018e6c703d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Override any conflicting styles from main.css */
+        .page-hero {
+            background-image: none;
+        }
+
+        /* Ensure hero content is visible */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(0, 75, 135, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Product Card with Images */
+        .product-card-with-image {
+            background: var(--white-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card-with-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .product-card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card-with-image:hover .product-card-image img {
+            transform: scale(1.05);
+        }
+
+        .product-card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card-content i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .product-card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .product-features-list {
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+
+        /* Business Stats Section */
+        .business-stats {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .commercial-section {
+            padding: 60px 0;
+            background-color: var(--dark-color);
+            color: var(--white-color);
+        }
+
+        .commercial-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .commercial-card {
+            background-color: var(--primary-dark);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-heavy);
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .commercial-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .commercial-card h3 {
+            color: var(--white-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Success Stories Section */
+        .success-stories {
+            padding: 60px 0;
+        }
+
+        .story-card {
+            background: var(--white-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .story-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .story-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .story-quote {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .story-quote:before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+            color: var(--accent-color);
+            font-family: Georgia, serif;
+        }
+
+        /* Callout Section with Image */
+        .callout-with-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        .callout-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .callout-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .business-hero {
+                height: 60vh;
+                min-height: 400px;
+                background-attachment: scroll;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .callout-with-image {
+                grid-template-columns: 1fr;
+            }
+            
+            .callout-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .business-hero {
+                height: 50vh;
+                min-height: 300px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-money-bill-wave logo-icon"></i>
+                    <span class="logo-text">Pros<span>perity</span>Bank</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <div class="nav-left">
+                        <a href="../index.html" class="nav-link">Home</a>
+                        
+                        <div class="dropdown">
+                            <a href="./personal-banking.html" class="nav-link dropdown-toggle">Personal <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <div class="mega-menu" style="left: 0;">
+                                <div class="mega-menu-col">
+                                    <h5>Banking Accounts</h5>
+                                    <a href="./personal-banking.html#checking" class="mega-menu-item"><i class="fas fa-piggy-bank"></i> Checking & Savings</a>
+                                    <a href="./personal-banking.html#ira" class="mega-menu-item"><i class="fas fa-money-check-alt"></i> IRAs & CDs</a>
+                                    <a href="./personal-banking.html#compare" class="mega-menu-item"><i class="fas fa-chart-bar"></i> Compare Accounts</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Lending</h5>
+                                    <a href="./personal-banking.html#credit-cards" class="mega-menu-item"><i class="fas fa-credit-card"></i> Credit Cards</a>
+                                    <a href="./personal-banking.html#loans" class="mega-menu-item"><i class="fas fa-house-user"></i> Home & Auto Loans</a>
+                                    <a href="./personal-banking.html#calculator" class="mega-menu-item"><i class="fas fa-calculator"></i> Mortgage Calculator</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Digital Tools</h5>
+                                    <a href="./digital-banking.html" class="mega-menu-item"><i class="fas fa-mobile-alt"></i> Mobile & Online Banking</a>
+                                    <a href="./security.html" class="mega-menu-item"><i class="fas fa-shield-alt"></i> Security Center</a>
+                                    <a href="./contact-support.html" class="mega-menu-item"><i class="fas fa-headset"></i> Support & FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="./business-banking.html" class="nav-link dropdown-toggle active">Business <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <div class="mega-menu" style="left: -150px; width: 600px;">
+                                <div class="mega-menu-col">
+                                    <h5>Small Business</h5>
+                                    <a href="./business-banking.html#checking" class="mega-menu-item"><i class="fas fa-briefcase"></i> Business Checking</a>
+                                    <a href="./business-banking.html#loans" class="mega-menu-item"><i class="fas fa-chart-line"></i> Business Loans & Credit</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Corporate & Commercial</h5>
+                                    <a href="./business-banking.html#global" class="mega-menu-item"><i class="fas fa-globe"></i> Global Treasury Services</a>
+                                    <a href="./business-banking.html#investments" class="mega-menu-item"><i class="fas fa-hand-holding-usd"></i> Corporate Investments</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Payment Solutions</h5>
+                                    <a href="./business-banking.html#merchant" class="mega-menu-item"><i class="fas fa-store"></i> Merchant Services</a>
+                                    <a href="./business-banking.html#payroll" class="mega-menu-item"><i class="fas fa-users-cog"></i> Payroll & Payments</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="./wealth-management.html" class="nav-link">Wealth Management</a>
+                        <a href="./about.html" class="nav-link">About Us</a>
+                    </div>
+                    
+                    <div class="nav-right">
+                        <button class="btn-search"><i class="fas fa-search"></i></button>
+                        <a href="./login.html" class="btn btn-outline">Sign In</a>
+                        <a href="./enroll.html" class="btn btn-secondary">Enroll Now</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times" style="display: none;"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero business-hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Solutions for Small to Large Enterprises</span>
+                <h1 class="hero-title">Business Banking.</h1>
+                <p class="hero-subtitle">Innovative banking solutions to help you start, run, and grow your business with confidence and security.</p>
+                <div class="hero-actions">
+                    <a href="#checking" class="btn btn-secondary btn-lg"><i class="fas fa-briefcase"></i> View Business Accounts</a>
+                    <a href="#loans" class="btn btn-outline-white btn-lg"><i class="fas fa-chart-line"></i> Secure Funding</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Statistics Section -->
+    <section class="business-stats">
+        <div class="container">
+            <h2 class="section-title text-center text-white">Trusted by Businesses Worldwide</h2>
+            <p class="section-subtitle text-center text-white-75 mb-5">Supporting businesses of all sizes with comprehensive financial solutions</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500K+</div>
+                    <div class="stat-label">Small Businesses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$250B+</div>
+                    <div class="stat-label">Business Loans</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Corporate Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">35+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content-page">
+        
+        <section id="checking" class="product-section">
+            <div class="container">
+                <h2 class="section-title text-center">Small Business Banking & Services</h2>
+                <p class="section-subtitle text-center">Solutions to manage your capital, pay employees, and accept customer payments easily.</p>
+                
+                <div class="product-card-grid">
+                    
+                    <div class="product-card-with-image">
+                        <div class="product-card-image">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Business Checking Account">
+                        </div>
+                        <div class="product-card-content">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h3>Business Advantage Checking</h3>
+                            <p>A simple, powerful checking account for day-to-day operations and cash flow management.</p>
+                            <ul class="product-features-list">
+                                <li><i class="fas fa-check-circle primary-color"></i> Unlimited transactions available</li>
+                                <li><i class="fas fa-check-circle primary-color"></i> Link to Merchant Services</li>
+                                <li><i class="fas fa-check-circle primary-color"></i> Dedicated Small Business Specialist</li>
+                            </ul>
+                            <a href="#" class="prop-link">Open Account Online <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card-with-image">
+                        <div class="product-card-image">
+                            <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Business Credit Card">
+                        </div>
+                        <div class="product-card-content">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>Business Advantage Cash Rewards</h3>
+                            <p>Cards designed to maximize rewards on business expenses like office supplies and travel.</p>
+                            <ul class="product-features-list">
+                                <li><i class="fas fa-check-circle primary-color"></i> Generous cash back categories</li>
+                                <li><i class="fas fa-check-circle primary-color"></i> Employee cards at no extra cost</li>
+                                <li><i class="fas fa-check-circle primary-color"></i> Detailed spending reports</li>
+                            </ul>
+                            <a href="#" class="prop-link">Compare Cards <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card-with-image" id="merchant">
+                        <div class="product-card-image">
+                            <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Merchant Services">
+                        </div>
+                        <div class="product-card-content">
+                            <i class="fas fa-store"></i>
+                            <h3>Merchant Services</h3>
+                            <p>Accept payments in-store, online, or on the go with secure, integrated technology.</p>
+                            <ul class="product-features-list">
+                                <li><i class="fas fa-check-circle primary-color"></i> POS systems and mobile card readers</li>
+                                <li><i class="fas fa-check-circle primary-color"></i> Industry-leading fraud protection</li>
+                                <li><i class="fas fa-check-circle primary-color"></i> Next-day funding available</li>
+                            </ul>
+                            <a href="#" class="prop-link">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loans" class="product-section light-bg">
+            <div class="container">
+                <h2 class="section-title text-center">Financing and Credit for Growth</h2>
+                <p class="section-subtitle text-center">Access capital when you need it with term loans, lines of credit, and specialized financing.</p>
+
+                <div class="product-card-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="product-card-with-image" style="border-top: 5px solid var(--secondary-color);">
+                        <div class="product-card-image">
+                            <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Business Term Loans">
+                        </div>
+                        <div class="product-card-content">
+                            <i class="fas fa-funnel-dollar"></i>
+                            <h3>Business Term Loans</h3>
+                            <p>Fixed payments and competitive rates for large, one-time investments like equipment or real estate.</p>
+                            <ul class="product-features-list">
+                                <li><i class="fas fa-check-circle secondary-color"></i> Predictable repayment schedule</li>
+                                <li><i class="fas fa-check-circle secondary-color"></i> Long-term and short-term options</li>
+                                <li><i class="fas fa-check-circle secondary-color"></i> Funds available quickly</li>
+                            </ul>
+                            <a href="#" class="prop-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="product-card-with-image" style="border-top: 5px solid var(--secondary-color);">
+                        <div class="product-card-image">
+                            <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Business Lines of Credit">
+                        </div>
+                        <div class="product-card-content">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <h3>Business Lines of Credit</h3>
+                            <p>Flexible financing to manage working capital, cover seasonal costs, or handle unexpected expenses.</p>
+                            <ul class="product-features-list">
+                                <li><i class="fas fa-check-circle secondary-color"></i> Only pay interest on what you use</li>
+                                <li><i class="fas fa-check-circle secondary-color"></i> Renewable credit limit</li>
+                                <li><i class="fas fa-check-circle secondary-color"></i> Ideal for cash flow gaps</li>
+                            </ul>
+                            <a href="#" class="prop-link">Check Eligibility <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Success Stories Section -->
+        <section class="success-stories light-bg">
+            <div class="container">
+                <h2 class="section-title text-center">Business Success Stories</h2>
+                <p class="section-subtitle text-center">See how our clients are growing with Prosperity Bank</p>
+                
+                <div class="product-card-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 40px;">
+                    <div class="story-card">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Tech Startup Success">
+                        </div>
+                        <div class="story-content">
+                            <h4>TechFlow Solutions</h4>
+                            <p class="story-quote">"The business line of credit helped us scale our operations during peak seasons. The flexibility was exactly what we needed."</p>
+                            <p><strong>Industry:</strong> Technology Services</p>
+                            <p><strong>Growth:</strong> 300% in 2 years</p>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Restaurant Success">
+                        </div>
+                        <div class="story-content">
+                            <h4>Urban Bistro</h4>
+                            <p class="story-quote">"Merchant services from Prosperity Bank simplified our payment processing and improved cash flow significantly."</p>
+                            <p><strong>Industry:</strong> Restaurant & Hospitality</p>
+                            <p><strong>Growth:</strong> 2 new locations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-image">
+                            <img src="https://images.unsplash.com/photo-1556740720-776b84291f8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Manufacturing Success">
+                        </div>
+                        <div class="story-content">
+                            <h4>Precision Manufacturing</h4>
+                            <p class="story-quote">"The equipment loan allowed us to upgrade our machinery, increasing production capacity by 40%."</p>
+                            <p><strong>Industry:</strong> Manufacturing</p>
+                            <p><strong>Growth:</strong> 40% production increase</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="global" class="commercial-section">
+            <div class="container text-center">
+                <h2 class="section-title text-white">Corporate and Commercial Banking</h2>
+                <p class="section-subtitle text-white-75">Sophisticated solutions for large corporations, financial institutions, and global firms.</p>
+
+                <div class="commercial-card-grid">
+                    <div class="commercial-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3>Global Treasury Services</h3>
+                        <p>Optimize cash flow, manage liquidity, and mitigate risk across international borders.</p>
+                        <a href="#" class="prop-link text-white">Explore Solutions <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="commercial-card" id="investments">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Investment Banking</h3>
+                        <p>Strategic advisory services for M&A, capital raising, and corporate restructuring.</p>
+                        <a href="#" class="prop-link text-white">Meet our Team <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="commercial-card">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Foreign Exchange</h3>
+                        <p>Access competitive rates and advanced tools for executing foreign currency transactions.</p>
+                        <a href="#" class="prop-link text-white">View Market Data <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="payroll" class="callout-section">
+            <div class="container">
+                <div class="callout-with-image">
+                    <div>
+                        <span class="security-tag primary-color">HR & PAYMENT SOLUTIONS</span>
+                        <h2 class="section-title">Streamline Your Payroll and Benefits</h2>
+                        <p class="section-subtitle">Our integrated platform simplifies employee payments, direct deposit, and benefits administration, saving you time and reducing errors.</p>
+                        <p>With our comprehensive payroll solutions, you can automate tax calculations, generate detailed reports, and ensure compliance with regulations. Our platform integrates seamlessly with your existing accounting software.</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-primary btn-lg">
+                                <i class="fas fa-chalkboard-teacher"></i> Request a Demo
+                            </a>
+                            <a href="#" class="btn btn-outline ml-3">
+                                <i class="fas fa-file-download"></i> Download Brochure
+                            </a>
+                        </div>
+                    </div>
+                    <div class="callout-image">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Payroll and HR Solutions">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-brand">
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-money-bill-wave logo-icon"></i>
+                        <span class="logo-text">Pros<span>perity</span>Bank</span>
+                    </a>
+                    <p>Helping make financial lives better through the power of every connection. Contact us today.</p>
+                    <a href="tel:+1 (773) 677-0845" class="footer-contact-link"><i class="fas fa-phone"></i> +1 (773) 677-0845</a>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Products & Services</h4>
+                    <ul>
+                        <li><a href="./personal-banking.html">Personal Banking</a></li>
+                        <li><a href="./business-banking.html">Business Services</a></li>
+                        <li><a href="./wealth-management.html">Merrill Lynch Investments</a></li>
+                        <li><a href="./personal-banking.html#credit-cards">Credit Cards</a></li>
+                        <li><a href="./personal-banking.html#loans">Home & Auto Loans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support & Legal</h4>
+                    <ul>
+                        <li><a href="./contact-support.html">Contact & FAQ</a></li>
+                        <li><a href="./security.html">Security Center</a></li>
+                        <li><a href="./404.html">Branch/ATM Locator</a></li>
+                        <li><a href="#">Privacy Notice</a></li>
+                        <li><a href="#">Online Access Agreement</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>About Prosperity Bank</h4>
+                    <ul>
+                        <li><a href="./about.html">Our History</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News & Press</a></li>
+                        <li><a href="#">Community Initiatives</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="disclosures">
+                    <p>Prosperity Bank, N.A. Member FDIC. Equal Housing Lender. © 2008 Prosperity Bank Corporation. All rights reserved.</p>
+                    <div class="compliance-icons">
+                        <span title="FDIC Insured"><i class="fas fa-landmark"></i> FDIC Insured</span>
+                        <span title="Equal Housing Lender"><i class="fas fa-home"></i> Equal Housing Lender</span>
+                        <span title="Secure Banking"><i class="fas fa-lock"></i> Secure Banking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="assistant-btn" id="assistantBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="assistant-modal" id="assistantModal">
+        <div class="assistant-header">
+            <h4><i class="fas fa-comment-dots"></i> Talk to Erica</h4>
+            <button class="chat-close-btn" id="chatCloseBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="assistant-body" id="assistantBody">
+            <div class="assistant-message bot">Hello! I'm Erica, your virtual financial assistant. How can I help you today?</div>
+        </div>
+        <div class="assistant-footer">
+            <input type="text" id="chatInput" placeholder="Ask a question..." required>
+            <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-header">
+                <h3>Search Prosperity Bank</h3>
+                <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); window.location.href = '../pages/search-results.html?query=' + document.getElementById('searchModalInput').value;" class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="What are you looking for? (e.g., ESG goals, mortgage rates)" id="searchModalInput">
+            </form>
+            <div class="search-suggestions">
+                <h4>Popular Searches</h4>
+                <a href="./digital-banking.html">Mobile banking app</a>
+                <a href="./personal-banking.html#credit-cards">Credit card offers</a>
+                <a href="./personal-banking.html#loans">Mortgage rates</a>
+                <a href="./wealth-management.html">Investment accounts</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-menu">
+            <a href="../index.html" class="nav-link">Home</a>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-user"></i> Personal <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./personal-banking.html#checking">Checking & Savings</a>
+                    <a href="./personal-banking.html#credit-cards">Credit Cards</a>
+                    <a href="./personal-banking.html#loans">Home & Auto Loans</a>
+                    <a href="./personal-banking.html#calculator">Mortgage Calculator</a>
+                </div>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-briefcase"></i> Business <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./business-banking.html#checking">Business Accounts</a>
+                    <a href="./business-banking.html#loans">Business Loans</a>
+                    <a href="./business-banking.html#merchant">Merchant Services</a>
+                </div>
+            </div>
+
+            <a href="./wealth-management.html" class="nav-link"><i class="fas fa-chart-line"></i> Wealth Management</a>
+            <a href="./digital-banking.html" class="nav-link"><i class="fas fa-mobile-alt"></i> Digital Banking</a>
+            <a href="./about.html" class="nav-link"><i class="fas fa-building"></i> About Us</a>
+            <a href="./security.html" class="nav-link"><i class="fas fa-shield-alt"></i> Security Center</a>
+        </div>
+        <div class="mobile-nav-right">
+            <a href="./login.html" class="btn btn-outline btn-full-width">Sign In</a>
+            <a href="./enroll.html" class="btn btn-secondary btn-full-width">Enroll Now</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

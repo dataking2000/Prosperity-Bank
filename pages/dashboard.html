@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Dashboard  | Prosperity Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Replace the existing CSS links in dashboard.html head -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="../js/main.js"></script>
+    <style>
+        /* Dashboard-specific Styles */
+        :root {
+            /* Assuming these are defined in main.css, but useful for reference */
+            --primary-color: #004B87; /* Bank of America Blue */
+            --secondary-color: #DA291C; /* Red/Accent */
+            --dark-color: #1a1a1a;
+            --light-color: #f7f7f7;
+            --white-color: #ffffff;
+            --border-color: #ddd;
+            --text-light: #666;
+            --primary-dark: #003366;
+            --accent-color: #f4c430; /* Yellow */
+            --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .dashboard-header {
+            background-color: var(--light-color);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .dashboard-welcome h1 {
+            font-size: 2rem;
+            color: var(--dark-color);
+        }
+        
+        .dashboard-welcome p {
+            color: var(--text-light);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .account-summary-card {
+            background-color: var(--white-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 20px;
+        }
+        
+        /* New Table Style for Transaction History */
+        .transaction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .transaction-table th, .transaction-table td {
+            padding: 10px 0;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+        .transaction-table th {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        .transaction-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .account-header h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+        }
+
+        .account-details p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .account-details .balance {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+        }
+        
+        .action-links a {
+            font-size: 0.95rem;
+            margin-right: 15px;
+        }
+
+        .alert-card {
+            background-color: #fffbe6; /* Light Yellow */
+            color: #856404; /* Dark Yellow Text */
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert-card i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .side-widget {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .side-widget h4 {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .side-widget ul {
+            padding: 0;
+        }
+        
+        .side-widget ul li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Dashboard-specific Header Overrides (Logged In State) */
+        .dashboard-header-nav .nav-menu {
+            /* Ensure nav-menu is always visible for dashboard */
+            display: flex !important; 
+            margin-left: 20px;
+            justify-content: flex-start;
+        }
+
+        .dashboard-header-nav .nav-right .btn-outline,
+        .dashboard-header-nav .nav-right .btn-secondary {
+            /* Hide general sign-in/enroll buttons when logged in */
+            display: none;
+        }
+        
+        .dashboard-header-nav .nav-right {
+             gap: 20px;
+             padding: 0;
+        }
+
+        .dashboard-header-nav .nav-right .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dashboard-header-nav .nav-right .user-menu i {
+            color: var(--white-color);
+            font-size: 1.2rem;
+        }
+        
+        .dashboard-header-nav .nav-right .user-menu span {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .dashboard-header-nav .nav-right .sign-out-btn {
+            background: transparent;
+            border: none;
+            color: var(--white-color);
+            padding: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .dashboard-header-nav .nav-right .sign-out-btn:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Hide Mobile Toggle on Dashboard (Simpler UX for Logged In) */
+        .dashboard-header-nav .mobile-toggle {
+            display: none !important;
+        }
+
+        .dashboard-header-nav .nav-left a {
+            background-color: transparent !important;
+            color: var(--white-color);
+        }
+        .dashboard-header-nav .nav-left a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Modal-related Styles (Re-added for KYC form) */
+        .modal-open {
+            overflow: hidden; 
+        }
+
+        .security-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1050; 
+        }
+
+        .security-modal.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .security-container {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-strong);
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+
+        .security-modal.is-visible .security-container {
+            transform: translateY(0);
+        }
+
+        .security-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .security-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        .close-security-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .form-group-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .form-group-checkbox input[type="checkbox"] {
+            margin-top: 4px;
+            transform: scale(1.1);
+        }
+        .form-group-checkbox label {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        .form-group-checkbox label a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .form-section-title {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-control[type="file"] {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* New styles for button interface in Quick Transfer widget */
+        .transfer-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .transfer-actions button {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .transfer-actions #btnTransfer {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: 1px solid var(--primary-color);
+        }
+        .transfer-actions #btnWithdraw {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            border: 1px solid var(--secondary-color);
+        }
+        .transfer-actions button:hover {
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header dashboard-header-nav">
+        <div class="container">
+            <nav class="nav">
+                <a href="./dashboard.html" class="logo">
+                    <i class="fas fa-money-bill-wave logo-icon"></i>
+                    <span class="logo-text">Pros<span>perity</span>Bank</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <div class="nav-left">
+                        <a href="./dashboard.html" class="nav-link active">My Dashboard</a>
+                        <a href="#transfers" class="nav-link">Transfers & Payments</a>
+                        <a href="#investments" class="nav-link">Investments (Merrill)</a>
+                        <a href="#support" class="nav-link">Support</a>
+                    </div>
+                    
+                    <div class="nav-right">
+                        <button class="btn-search"><i class="fas fa-search"></i></button>
+                        <div class="user-menu">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Welcome, Alex!</span>
+                        </div>
+                        <a href="../index.html" class="sign-out-btn"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dashboard-header">
+        <div class="container dashboard-welcome">
+            <div class="alert-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Action Required:</strong> Your credit card payment of $250 is due on 12/05/2023. <a href="#" class="primary-color" style="font-weight: 600;">Make a payment now.</a>
+                </div>
+            </div>
+            <h1>Your Accounts at a Glance</h1>
+            <p>Welcome back, Alex Smith. Last login: 1 minute ago.</p>
+        </div>
+    </section>
+
+    <main class="main-content-page">
+        <div class="container dashboard-grid">
+            
+            <section class="account-details-main">
+                <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 25px;">Checking & Savings</h2>
+                
+                <div class="account-summary-card">
+                    <div class="account-header">
+                        <h3><i class="fas fa-piggy-bank primary-color"></i> Advantage Plus Checking (...9876)</h3>
+                        <a href="#history" class="prop-link">View Full History <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="account-details">
+                        <p>Available Balance:</p>
+                        <p class="balance">$1,452.88</p>
+                    </div>
+                    <div class="action-links pt-3">
+                        <a href="#transfers"><i class="fas fa-exchange-alt"></i> Transfer Funds</a>
+                        <a href="#"><i class="fas fa-money-check"></i> Pay Bills</a>
+                        <a href="#history"><i class="fas fa-history"></i> Recent Transactions</a>
+                    </div>
+                </div>
+
+                <div class="account-summary-card">
+                    <div class="account-header">
+                        <h3><i class="fas fa-dollar-sign primary-color"></i> Advantage Savings (...5432)</h3>
+                        <a href="#" class="prop-link">View Statement <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="account-details">
+                        <p>Total Balance:</p>
+                        <p class="balance">$12,350.15</p>
+                    </div>
+                    <div class="action-links pt-3">
+                        <a href="#transfers"><i class="fas fa-exchange-alt"></i> Set Up Auto Save</a>
+                        <a href="#"><i class="fas fa-chart-line"></i> View Interest Earned</a>
+                    </div>
+                </div>
+                
+                <h2 class="section-title mt-5" style="font-size: 1.8rem; margin-bottom: 25px;">Credit & Lending</h2>
+
+                <div class="account-summary-card">
+                    <div class="account-header">
+                        <h3><i class="fas fa-credit-card secondary-color"></i> Customized Cash Rewards Card (...1234)</h3>
+                        <a href="#" class="prop-link">Card Services <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="account-details">
+                        <p>Current Balance:</p>
+                        <p class="balance" style="color: #DA291C;">$895.00</p>
+                        <p>Credit Available: $4,105.00</p>
+                        <p>Minimum Payment Due: $50.00 (12/05/2023)</p>
+                    </div>
+                    <div class="action-links pt-3">
+                        <a href="#"><i class="fas fa-money-bill-wave"></i> Make a Payment</a>
+                        <a href="#"><i class="fas fa-gift"></i> View Rewards Balance</a>
+                    </div>
+                </div>
+
+                <div class="account-summary-card">
+                    <div class="account-header">
+                        <h3><i class="fas fa-home secondary-color"></i> Home Mortgage (...4567)</h3>
+                        <a href="#" class="prop-link">Loan Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="account-details">
+                        <p>Next Payment:</p>
+                        <p class="balance">$1,850.00</p>
+                        <p>Due Date: 12/15/2023</p>
+                        <p>Principal Remaining: $245,300.00</p>
+                    </div>
+                    <div class="action-links pt-3">
+                        <a href="#"><i class="fas fa-calendar-alt"></i> Pay Ahead</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> Tax Documents</a>
+                    </div>
+                </div>
+                
+                <div class="account-summary-card mt-5" id="history">
+                    <div class="account-header">
+                        <h3><i class="fas fa-history primary-color"></i> Transaction History (Advantage Plus Checking)</h3>
+                        <a href="#" class="prop-link">Download Activity <i class="fas fa-download"></i></a>
+                    </div>
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 15%;">Date</th>
+                                <th style="width: 55%;">Description</th>
+                                <th style="width: 15%; text-align: right;">Amount</th>
+                                <th style="width: 15%;">Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionTableBody">
+                            </tbody>
+                    </table>
+                    <a href="#" class="prop-link mt-3" style="display: block; text-align: center;">View All Activity</a>
+                </div>
+
+            </section>
+            
+            <section class="dashboard-widgets">
+                
+                <div class="side-widget" id="transfers">
+                    <h4><i class="fas fa-exchange-alt"></i> Transfers & Withdrawals</h4>
+                    <p class="text-muted">Choose your action below to proceed to the secure authorization screen.</p>
+                    
+                    <div class="form-group mb-3">
+                        <label for="transferAmount">Amount ($) <small class="text-muted">(Enter amount before authorizing)</small></label>
+                        <input type="number" id="transferAmount" class="form-control" value="100" min="1" required>
+                    </div>
+
+                    <div class="transfer-actions">
+                        <button id="btnTransfer"><i class="fas fa-paper-plane"></i> Transfer Funds</button>
+                        <button id="btnWithdraw"><i class="fas fa-money-bill-wave"></i> Withdraw Funds</button>
+                    </div>
+                </div>
+                
+                <div class="side-widget" id="investments">
+                    <h4><i class="fas fa-chart-line"></i> Merrill Investment Snapshot</h4>
+                    <p style="margin-bottom: 10px;">Total Portfolio Value:</p>
+                    <p class="balance" style="font-size: 2rem; color: var(--primary-color);">$45,980.75</p>
+                    <ul>
+                        <li><a href="#" class="prop-link">View Portfolio</a></li>
+                        <li><a href="#" class="prop-link">Place a Trade</a></li>
+                        <li><a href="#" class="prop-link">Talk to Advisor</a></li>
+                    </ul>
+                </div>
+                
+                <div class="side-widget" id="support">
+                    <h4><i class="fas fa-headset"></i> Need Help?</h4>
+                    <p>Contact our dedicated preferred client support line or use the Erica Chat bot.</p>
+                    <a href="tel:+1 (773) 677-0845" class="btn btn-outline-dark btn-full-width btn-sm mt-3"><i class="fas fa-phone"></i> Call Support Now</a>
+                    <button class="btn btn-primary btn-full-width btn-sm mt-2" onclick="document.getElementById('assistantBtn').click();">
+                        <i class="fas fa-comment-dots"></i> Start Erica Chat
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="disclosures">
+                    <p>Prosperity Bank, N.A. Member FDIC. Equal Housing Lender. © 2008 Prosperity Bank Corporation. All rights reserved.</p>
+                    <div class="compliance-icons">
+                        <span title="FDIC Insured"><i class="fas fa-landmark"></i> FDIC Insured</span>
+                        <span title="Equal Housing Lender"><i class="fas fa-home"></i> Equal Housing Lender</span>
+                        <span title="Secure Banking"><i class="fas fa-lock"></i> Secure Banking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="assistant-btn" id="assistantBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="assistant-modal" id="assistantModal">
+        <div class="assistant-header">
+            <h4><i class="fas fa-comment-dots"></i> Talk to Erica</h4>
+            <button class="chat-close-btn" id="chatCloseBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="assistant-body" id="assistantBody">
+            <div class="assistant-message bot">Hello! I'm Erica, your virtual financial assistant. How can I help you today?</div>
+        </div>
+        <div class="assistant-footer">
+            <input type="text" id="chatInput" placeholder="Ask a question..." required>
+            <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-header">
+                <h3>Search Prosperity Bank</h3>
+                <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); window.location.href = '../pages/search-results.html?query=' + document.getElementById('searchModalInput').value;" class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="What are you looking for? (e.g., ESG goals, mortgage rates)" id="searchModalInput">
+            </form>
+            <div class="search-suggestions">
+                <h4>Popular Searches</h4>
+                <a href="./digital-banking.html">Mobile banking app</a>
+                <a href="./personal-banking.html#credit-cards">Credit card offers</a>
+                <a href="./personal-banking.html#loans">Mortgage rates</a>
+                <a href="./wealth-management.html">Investment accounts</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="security-modal" id="transactionSecurityModal">
+        <div class="security-container">
+            <div class="security-header">
+                <h3 id="modalTitle">Withdrawal Authorization & KYC Check</h3>
+                <button class="close-security-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="securityConfirmationForm" class="full-kyc-form">
+                <p>To execute this <strong id="transactionTypeDisplay">withdrawal</strong> of <strong class="text-danger" id="transactionAmountDisplay"></strong>, you must complete the KYC (Know Your Customer) and Enhanced Security Check below, and accept the terms.</p>
+                
+                <h4 class="form-section-title"><i class="fas fa-user-shield"></i> Personal Identification</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth *</label>
+                        <input type="date" id="dob" name="dob" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pob">Place of Birth *</label>
+                        <input type="text" id="pob" name="pob" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender *</label>
+                        <select id="gender" name="gender" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status *</label>
+                        <select id="status" name="status" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="ssn">SSN / National ID *</label>
+                    <input type="text" id="ssn" name="ssn" class="form-control" required placeholder="XXX-XX-XXXX">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="address">Address *</label>
+                    <input type="text" id="address" name="address" class="form-control" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                    </div>
+                </div>
+                
+                <h4 class="form-section-title"><i class="fas fa-id-card"></i> Identity Documents (Uploads)</h4>
+
+                <div class="form-group mb-3">
+                    <label for="driversLicense">Driver's License or State ID *</label>
+                    <input type="file" id="driversLicense" name="driversLicense" class="form-control" required accept="image/*,.pdf" multiple>
+                    <small class="form-text text-muted">Upload back and front images.</small>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="passport">Passport (Optional)</label>
+                    <input type="file" id="passport" name="passport" class="form-control" accept="image/*,.pdf" multiple>
+                    <small class="form-text text-muted">Upload back and front images.</small>
+                </div>
+                
+                <h4 class="form-section-title"><i class="fas fa-briefcase"></i> Employment Information</h4>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="employerName">Name of Employer *</label>
+                        <input type="text" id="employerName" name="employerName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title *</label>
+                        <input type="text" id="jobTitle" name="jobTitle" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="workAddress">Work Address *</label>
+                    <input type="text" id="workAddress" name="workAddress" class="form-control" required>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="workPhone">Work Phone Number *</label>
+                    <input type="tel" id="workPhone" name="workPhone" class="form-control" required>
+                </div>
+
+                <h4 class="form-section-title"><i class="fas fa-money-check-alt"></i> External Bank Details (For Transfer/Withdrawal)</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bankName">External Bank Name *</label>
+                        <input type="text" id="bankName" name="bankName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankAccountNumber">Bank Account Number *</label>
+                        <input type="text" id="bankAccountNumber" name="bankAccountNumber" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group-checkbox mb-4 mt-4">
+                    <input type="checkbox" id="termsAccepted" required>
+                    <label for="termsAccepted">I confirm all information is correct and I accept the <a href="#" target="_blank">Terms and Conditions</a>. *</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full-width" id="confirmTransferBtn">Authorize & Execute <span id="buttonActionText">Withdrawal</span></button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

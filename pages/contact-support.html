@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support | Customer Service, Branches, and FAQ | Prosperity Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/main.js"></script>
+    <style>
+        /* Define the hero image for this specific page */
+        .contact-hero {
+            background-image: url('https://images.unsplash.com/photo-1556761175-5973dd98cb08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80');
+            background-position: center 30%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* FAQ Accordion Styles (NEW INTERACTION) */
+        .accordion {
+            margin-top: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .accordion-header:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s;
+            font-size: 1rem;
+        }
+        
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 15px 20px;
+            background-color: var(--white-color);
+            display: none;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-money-bill-wave logo-icon"></i>
+                    <span class="logo-text">Pros<span>perity</span>Bank</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <div class="nav-left">
+                        <a href="../index.html" class="nav-link">Home</a>
+                        
+                        <div class="dropdown">
+                            <a href="./personal-banking.html" class="nav-link dropdown-toggle">Personal <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <div class="mega-menu" style="left: 0;">
+                                <div class="mega-menu-col">
+                                    <h5>Banking Accounts</h5>
+                                    <a href="./personal-banking.html#checking" class="mega-menu-item"><i class="fas fa-piggy-bank"></i> Checking & Savings</a>
+                                    <a href="./personal-banking.html#ira" class="mega-menu-item"><i class="fas fa-money-check-alt"></i> IRAs & CDs</a>
+                                    <a href="./personal-banking.html#compare" class="mega-menu-item"><i class="fas fa-chart-bar"></i> Compare Accounts</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Lending</h5>
+                                    <a href="./personal-banking.html#credit-cards" class="mega-menu-item"><i class="fas fa-credit-card"></i> Credit Cards</a>
+                                    <a href="./personal-banking.html#loans" class="mega-menu-item"><i class="fas fa-house-user"></i> Home & Auto Loans</a>
+                                    <a href="./personal-banking.html#calculator" class="mega-menu-item"><i class="fas fa-calculator"></i> Mortgage Calculator</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Digital Tools</h5>
+                                    <a href="./digital-banking.html" class="mega-menu-item"><i class="fas fa-mobile-alt"></i> Mobile & Online Banking</a>
+                                    <a href="./security.html" class="mega-menu-item"><i class="fas fa-shield-alt"></i> Security Center</a>
+                                    <a href="./contact-support.html" class="nav-link active mega-menu-item"><i class="fas fa-headset"></i> Support & FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="./business-banking.html" class="nav-link dropdown-toggle">Business <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <div class="mega-menu" style="left: -150px; width: 600px;">
+                                <div class="mega-menu-col">
+                                    <h5>Small Business</h5>
+                                    <a href="./business-banking.html#checking" class="mega-menu-item"><i class="fas fa-briefcase"></i> Business Checking</a>
+                                    <a href="./business-banking.html#loans" class="mega-menu-item"><i class="fas fa-chart-line"></i> Business Loans & Credit</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Corporate & Commercial</h5>
+                                    <a href="./business-banking.html#global" class="mega-menu-item"><i class="fas fa-globe"></i> Global Treasury Services</a>
+                                    <a href="./business-banking.html#investments" class="mega-menu-item"><i class="fas fa-hand-holding-usd"></i> Corporate Investments</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Payment Solutions</h5>
+                                    <a href="./business-banking.html#merchant" class="mega-menu-item"><i class="fas fa-store"></i> Merchant Services</a>
+                                    <a href="./business-banking.html#payroll" class="mega-menu-item"><i class="fas fa-users-cog"></i> Payroll & Payments</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="./wealth-management.html" class="nav-link">Wealth Management</a>
+                        <a href="./about.html" class="nav-link">About Us</a>
+                    </div>
+                    
+                    <div class="nav-right">
+                        <button class="btn-search"><i class="fas fa-search"></i></button>
+                        <a href="./login.html" class="btn btn-outline">Sign In</a>
+                        <a href="./enroll.html" class="btn btn-secondary">Enroll Now</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times" style="display: none;"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero contact-hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">We're Here to Help, 24/7</span>
+                <h1 class="hero-title">Contact & Support.</h1>
+                <p class="hero-subtitle">Get fast answers, find a local branch, or connect with a dedicated representative for personalized assistance.</p>
+                <div class="hero-actions">
+                    <a href="#contact-grid" class="btn btn-secondary btn-lg"><i class="fas fa-phone"></i> Call Us</a>
+                    <a href="#faq" class="btn btn-outline-white btn-lg"><i class="fas fa-question-circle"></i> View FAQs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content-page">
+        
+        <section id="contact-grid" class="product-section">
+            <div class="container">
+                <h2 class="section-title text-center">Contact Options</h2>
+                <p class="section-subtitle text-center">Reach the right team quickly, whether for general support or specific services.</p>
+                
+                <div class="contact-grid">
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-headset"></i>
+                        <h3>General Customer Service</h3>
+                        <p>For account inquiries, online banking help, and general support.</p>
+                        <a href="tel:1-800-432-1000" class="btn btn-primary btn-lg mt-3">
+                            <i class="fas fa-phone"></i> Call 1-800-432-1000
+                        </a>
+                        <p class="text-light mt-2">Available 24 hours a day, 7 days a week.</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Branch & ATM Locator</h3>
+                        <p>Find the nearest Prosperity Bank branch or ATM for cash and in-person services.</p>
+                        <a href="./404.html" class="btn btn-primary btn-lg mt-3">
+                            <i class="fas fa-search-location"></i> Find a Location
+                        </a>
+                        <p class="text-light mt-2">Check hours and book appointments online.</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security & Fraud</h3>
+                        <p>If you suspect fraud, identity theft, or lost your card, call us immediately.</p>
+                        <a href="tel:1-800-432-1000" class="btn btn-secondary btn-lg mt-3">
+                            <i class="fas fa-exclamation-triangle"></i> Report Fraud Now
+                        </a>
+                        <p class="text-light mt-2">Dedicated fraud specialists available 24/7.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="product-section light-bg">
+            <div class="container">
+                <h2 class="section-title text-center">Frequently Asked Questions (FAQ)</h2>
+                <p class="section-subtitle text-center">Quick answers to the most common questions about our products and services.</p>
+                
+                <div class="accordion">
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-target="content1">
+                            How do I enroll in Online and Mobile Banking? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content" id="content1">
+                            To enroll, you will need your checking or savings account number, the last 4 digits of your Social Security number, and a valid email address. Click the 'Enroll Now' button at the top right of this page to begin the quick, secure process.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-target="content2">
+                            What is the Zero Liability Guarantee? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content" id="content2">
+                            Our Zero Liability Guarantee means you are protected against unauthorized use of your credit card or debit card. If fraudulent charges occur, you will be fully reimbursed, provided you notify us promptly. Visit the <a href="./security.html" class="primary-color">Security Center</a> for full details.
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-target="content3">
+                            Are my deposits FDIC insured? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content" id="content3">
+                            Yes, Prosperity Bank, N.A. is a Member FDIC. Your deposits are federally insured up to the maximum amount permitted by law (currently $250,000 per depositor, per insured bank, for each account ownership category).
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-target="content4">
+                            How do I apply for a home loan or mortgage? <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content" id="content4">
+                            You can start your mortgage application process entirely online through our digital portal. Alternatively, you can schedule an appointment with a dedicated Home Loan Specialist at any local branch. We offer fast pre-qualification to help you shop with confidence.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="callout-section">
+            <div class="container">
+                <div class="security-card" style="border-left-color: var(--primary-dark);">
+                    <div class="security-icon">
+                        <i class="fas fa-comment-dots primary-color"></i>
+                    </div>
+                    <div class="security-content">
+                        <span class="security-tag secondary-color">FASTEST SUPPORT</span>
+                        <h2>Need an Immediate Answer? Ask Erica.</h2>
+                        <p>Our Virtual Assistant, Erica, can instantly answer thousands of common questions, provide balances, and help you find information on the website. Look for the chat icon.</p>
+                        <button class="btn btn-primary btn-lg" onclick="document.getElementById('assistantBtn').click();">
+                            <i class="fas fa-comment-dots"></i> Start a Chat with Erica
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-brand">
+                    <a href="../index.html" class="logo">
+                        <i class="fas fa-money-bill-wave logo-icon"></i>
+                        <span class="logo-text">Pros<span>perity</span>Bank</span>
+                    </a>
+                    <p>Helping make financial lives better through the power of every connection. Contact us today.</p>
+                    <a href="tel:1-800-432-1000" class="footer-contact-link"><i class="fas fa-phone"></i> 1-800-432-1000</a>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Products & Services</h4>
+                    <ul>
+                        <li><a href="./personal-banking.html">Personal Banking</a></li>
+                        <li><a href="./business-banking.html">Business Services</a></li>
+                        <li><a href="./wealth-management.html">Merrill Lynch Investments</a></li>
+                        <li><a href="./personal-banking.html#credit-cards">Credit Cards</a></li>
+                        <li><a href="./personal-banking.html#loans">Home & Auto Loans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support & Legal</h4>
+                    <ul>
+                        <li><a href="./contact-support.html">Contact & FAQ</a></li>
+                        <li><a href="./security.html">Security Center</a></li>
+                        <li><a href="./404.html">Branch/ATM Locator</a></li>
+                        <li><a href="#">Privacy Notice</a></li>
+                        <li><a href="#">Online Access Agreement</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>About Prosperity Bank</h4>
+                    <ul>
+                        <li><a href="./about.html">Our History</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News & Press</a></li>
+                        <li><a href="#">Community Initiatives</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="disclosures">
+                    <p>Prosperity Bank, N.A. Member FDIC. Equal Housing Lender. © 2008 Prosperity Bank Corporation. All rights reserved.</p>
+                    <div class="compliance-icons">
+                        <span title="FDIC Insured"><i class="fas fa-landmark"></i> FDIC Insured</span>
+                        <span title="Equal Housing Lender"><i class="fas fa-home"></i> Equal Housing Lender</span>
+                        <span title="Secure Banking"><i class="fas fa-lock"></i> Secure Banking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="assistant-btn" id="assistantBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="assistant-modal" id="assistantModal">
+        <div class="assistant-header">
+            <h4><i class="fas fa-comment-dots"></i> Talk to Erica</h4>
+            <button class="chat-close-btn" id="chatCloseBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="assistant-body" id="assistantBody">
+            <div class="assistant-message bot">Hello! I'm Erica, your virtual financial assistant. How can I help you today?</div>
+        </div>
+        <div class="assistant-footer">
+            <input type="text" id="chatInput" placeholder="Ask a question..." required>
+            <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-header">
+                <h3>Search Bank of America</h3>
+                <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); window.location.href = '../pages/search-results.html?query=' + document.getElementById('searchModalInput').value;" class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="What are you looking for? (e.g., ESG goals, mortgage rates)" id="searchModalInput">
+            </form>
+            <div class="search-suggestions">
+                <h4>Popular Searches</h4>
+                <a href="./digital-banking.html">Mobile banking app</a>
+                <a href="./personal-banking.html#credit-cards">Credit card offers</a>
+                <a href="./personal-banking.html#loans">Mortgage rates</a>
+                <a href="./wealth-management.html">Investment accounts</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-menu">
+            <a href="../index.html" class="nav-link">Home</a>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-user"></i> Personal <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./personal-banking.html#checking">Checking & Savings</a>
+                    <a href="./personal-banking.html#credit-cards">Credit Cards</a>
+                    <a href="./personal-banking.html#loans">Home & Auto Loans</a>
+                    <a href="./personal-banking.html#calculator">Mortgage Calculator</a>
+                </div>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-briefcase"></i> Business <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./business-banking.html#checking">Business Accounts</a>
+                    <a href="./business-banking.html#loans">Business Loans</a>
+                    <a href="./business-banking.html#merchant">Merchant Services</a>
+                </div>
+            </div>
+
+            <a href="./wealth-management.html" class="nav-link"><i class="fas fa-chart-line"></i> Wealth Management</a>
+            <a href="./digital-banking.html" class="nav-link"><i class="fas fa-mobile-alt"></i> Digital Banking</a>
+            <a href="./about.html" class="nav-link"><i class="fas fa-building"></i> About Us</a>
+            <a href="./security.html" class="nav-link"><i class="fas fa-shield-alt"></i> Security Center</a>
+        </div>
+        <div class="mobile-nav-right">
+            <a href="./login.html" class="btn btn-outline btn-full-width">Sign In</a>
+            <a href="./enroll.html" class="btn btn-secondary btn-full-width">Enroll Now</a>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const headers = document.querySelectorAll('.accordion-header');
+            
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const targetId = header.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    
+                    const isActive = header.classList.contains('active');
+                    
+                    // Close all other open items
+                    document.querySelectorAll('.accordion-header').forEach(h => {
+                        h.classList.remove('active');
+                        document.getElementById(h.getAttribute('data-target')).style.display = 'none';
+                    });
+
+                    // Toggle the clicked item
+                    if (!isActive) {
+                        header.classList.add('active');
+                        targetContent.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

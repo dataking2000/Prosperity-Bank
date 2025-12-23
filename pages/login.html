@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In to Online Banking | Prosperity Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/login.css"> 
+    <script src="../js/main.js"></script>
+</head>
+<body class="auth-page">
+
+    <header class="auth-header">
+        <div class="container auth-nav">
+            <a href="../index.html" class="auth-logo">
+                <i class="fas fa-money-bill-wave logo-icon"></i>
+                <span class="logo-text">Pros<span>perity</span>Bank</span>
+            </a>
+            <a href="./enroll.html" class="auth-link">New User? Enroll Now</a>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <h1>Sign In to Online Banking</h1>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userId">Online ID</label>
+                    <input type="text" id="userId" class="form-control form-control-lg" placeholder="Enter Online ID" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pass">Passcode</label>
+                    <input type="password" id="pass" class="form-control form-control-lg" placeholder="Enter Passcode" required>
+                </div>
+                
+                <div class="auth-options">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">
+                            Remember my Online ID
+                        </label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot ID/Passcode?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-secondary btn-full-width btn-lg">Sign In</button>
+            </form>
+            
+            <div class="mt-4 text-center">
+                <p>Don't have an account? <a href="./enroll.html" class="primary-color">Enroll Now.</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" style="padding: 20px 0;">
+        <div class="container text-center">
+            <p class="disclosures">
+                Prosperity Bank, N.A. Member FDIC. Equal Housing Lender. © 2008 Prosperity Bank Corporation. <span class="primary-color">Security</span> | <span class="primary-color">Privacy</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script> 
+</body>
+</html>
