@@ -1,0 +1,191 @@
+/*
+ * BANK OF AMERICA MOCKUP - LOGIN & ENROLLMENT STYLES
+ * This file contains specific styles for the highly focused authentication pages.
+ */
+
+/* -------------------- 1. BASE AUTH STYLES -------------------- */
+.auth-page {
+    background-color: var(--light-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-header {
+    background-color: var(--primary-dark);
+    padding: 15px 0;
+    box-shadow: var(--shadow-heavy);
+}
+
+.auth-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth-logo {
+    color: var(--white-color);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.auth-logo span {
+    color: var(--secondary-color);
+    font-weight: 300;
+}
+
+.auth-link {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* -------------------- 2. FORM CONTAINER -------------------- */
+.auth-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.auth-card {
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-card h1 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-control-lg {
+    padding: 15px 15px;
+    font-size: 1.1rem;
+    height: auto;
+}
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.forgot-link {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* -------------------- 3. ENROLLMENT SPECIFIC -------------------- */
+.progress-bar {
+    margin-bottom: 30px;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--secondary-color);
+    transition: width 0.4s ease-in-out;
+}
+
+.enroll-step-content {
+    min-height: 200px;
+}
+
+.step-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.step-buttons .btn {
+    flex: 1;
+}
+
+.enrollment-success {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.enrollment-success i {
+    font-size: 4rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+/* -------------------- 4. RESPONSIVENESS -------------------- */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+    
+    .auth-card h1 {
+        font-size: 1.8rem;
+    }
+    
+    .step-buttons {
+        flex-direction: column;
+    }
+}
+
+
+
+/* Add these styles to login.css */
+.auth-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.auth-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.auth-success i,
+.auth-error i {
+    margin-right: 8px;
+}
+
+.step-error {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    margin-top: 5px;
+}
