@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosperity Bank | Banking, Credit Cards, Home Loans & Auto Loans</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        /* Hero-specific styles */
+        .home-hero {
+            background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80');
+            background-position: center 60%;
+        }
+
+        /* Products Grid Adjustments */
+        .product-card-grid .product-card:nth-child(1) { border-top-color: var(--secondary-color); }
+        .product-card-grid .product-card:nth-child(2) { border-top-color: var(--accent-color); }
+        .product-card-grid .product-card:nth-child(3) { border-top-color: var(--primary-dark); }
+
+        /* Banner Styles */
+        .banner {
+            background-color: var(--accent-color);
+            padding: 30px 0;
+            color: var(--dark-color);
+        }
+        
+        .banner-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banner-content h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .banner-content p {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .banner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .banner-content .btn {
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="./index.html" class="logo">
+                    <i class="fas fa-money-bill-wave logo-icon"></i>
+                    <span class="logo-text">Pros<span>perity</span>Bank</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <div class="nav-left">
+                        <a href="./index.html" class="nav-link active">Home</a>
+                        
+                        <div class="dropdown">
+                            <a href="./pages/personal-banking.html" class="nav-link dropdown-toggle">Personal <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <div class="mega-menu" style="left: 0;">
+                                <div class="mega-menu-col">
+                                    <h5>Banking Accounts</h5>
+                                    <a href="./pages/personal-banking.html#checking" class="mega-menu-item"><i class="fas fa-piggy-bank"></i> Checking & Savings</a>
+                                    <a href="./pages/personal-banking.html#ira" class="mega-menu-item"><i class="fas fa-money-check-alt"></i> IRAs & CDs</a>
+                                    <a href="./pages/personal-banking.html#compare" class="mega-menu-item"><i class="fas fa-chart-bar"></i> Compare Accounts</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Lending</h5>
+                                    <a href="./pages/personal-banking.html#credit-cards" class="mega-menu-item"><i class="fas fa-credit-card"></i> Credit Cards</a>
+                                    <a href="./pages/personal-banking.html#loans" class="mega-menu-item"><i class="fas fa-house-user"></i> Home & Auto Loans</a>
+                                    <a href="./pages/personal-banking.html#calculator" class="mega-menu-item"><i class="fas fa-calculator"></i> Mortgage Calculator</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Digital Tools</h5>
+                                    <a href="./pages/digital-banking.html" class="mega-menu-item"><i class="fas fa-mobile-alt"></i> Mobile & Online Banking</a>
+                                    <a href="./pages/security.html" class="mega-menu-item"><i class="fas fa-shield-alt"></i> Security Center</a>
+                                    <a href="./pages/contact-support.html" class="mega-menu-item"><i class="fas fa-headset"></i> Support & FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <a href="./pages/business-banking.html" class="nav-link dropdown-toggle">Business <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                            <div class="mega-menu" style="left: -150px; width: 600px;">
+                                <div class="mega-menu-col">
+                                    <h5>Small Business</h5>
+                                    <a href="./pages/business-banking.html#checking" class="mega-menu-item"><i class="fas fa-briefcase"></i> Business Checking</a>
+                                    <a href="./pages/business-banking.html#loans" class="mega-menu-item"><i class="fas fa-chart-line"></i> Business Loans & Credit</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Corporate & Commercial</h5>
+                                    <a href="./pages/business-banking.html#global" class="mega-menu-item"><i class="fas fa-globe"></i> Global Treasury Services</a>
+                                    <a href="./pages/business-banking.html#investments" class="mega-menu-item"><i class="fas fa-hand-holding-usd"></i> Corporate Investments</a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h5>Payment Solutions</h5>
+                                    <a href="./pages/business-banking.html#merchant" class="mega-menu-item"><i class="fas fa-store"></i> Merchant Services</a>
+                                    <a href="./pages/business-banking.html#payroll" class="mega-menu-item"><i class="fas fa-users-cog"></i> Payroll & Payments</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="./pages/wealth-management.html" class="nav-link">Wealth Management</a>
+                        <a href="./pages/about.html" class="nav-link">About Us</a>
+                    </div>
+                    
+                    <div class="nav-right">
+                        <button class="btn-search"><i class="fas fa-search"></i></button>
+                        <a href="./pages/login.html" class="btn btn-outline" id="mainSignInBtn">Sign In</a>
+                        <a href="./pages/enroll.html" class="btn btn-secondary">Enroll Now</a>
+                    </div>
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times" style="display: none;"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero home-hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Welcome to Prosperity Bank</span>
+                <h1 class="hero-title">Your financial future starts now.</h1>
+                <p class="hero-subtitle">Open a checking account, get a credit card, or plan your wealth with our dedicated financial tools and specialists.</p>
+                <div class="hero-actions">
+                    <a href="pages/personal-banking.html" class="btn btn-secondary btn-lg"><i class="fas fa-piggy-bank"></i> Open a New Account</a>
+                    <a href="pages/login.html" class="btn btn-outline btn-lg"><i class="fas fa-lock"></i> Sign In to Account</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content-page">
+        
+        <section class="product-section">
+            <div class="container">
+                <h2 class="section-title text-center">Banking Solutions Designed for You</h2>
+                <p class="section-subtitle text-center">Explore our most popular products for every stage of your financial life.</p>
+                
+                <div class="product-card-grid">
+                    
+                    <div class="product-card">
+                        <i class="fas fa-user-circle"></i>
+                        <h3>Personal Banking</h3>
+                        <p>Manage daily spending and savings with our Advantage Banking suite, featuring flexible options and low fees.</p>
+                        <ul class="product-features-list">
+                            <li><i class="fas fa-check-circle secondary-color"></i> Checking & Savings Accounts</li>
+                            <li><i class="fas fa-check-circle secondary-color"></i> Student & Teen Banking</li>
+                            <li><i class="fas fa-check-circle secondary-color"></i> Zelle & Mobile Deposits</li>
+                        </ul>
+                        <a href="pages/personal-banking.html" class="prop-link">View Personal Accounts <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Credit Cards & Loans</h3>
+                        <p>Find the right credit card with rewards or secure a loan for your next major purchase or home.</p>
+                        <ul class="product-features-list">
+                            <li><i class="fas fa-check-circle secondary-color"></i> Preferred Rewards Credit Cards</li>
+                            <li><i class="fas fa-check-circle secondary-color"></i> Mortgage and Refinance Options</li>
+                            <li><i class="fas fa-check-circle secondary-color"></i> Auto Loans and Financing</li>
+                        </ul>
+                        <a href="pages/personal-banking.html#loans" class="prop-link">Check Rates & Apply <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Wealth Management</h3>
+                        <p>Partner with Merrill and Private Bank to grow and protect your wealth for the long term.</p>
+                        <ul class="product-features-list">
+                            <li><i class="fas fa-check-circle secondary-color"></i> Guided and Self-Directed Investing</li>
+                            <li><i class="fas fa-check-circle secondary-color"></i> Retirement Planning (401k/IRA)</li>
+                            <li><i class="fas fa-check-circle secondary-color"></i> Estate & Trust Services</li>
+                        </ul>
+                        <a href="pages/wealth-management.html" class="prop-link">Explore Investment Options <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="banner light-bg">
+            <div class="container banner-content">
+                <div>
+                    <h3><i class="fas fa-mobile-alt"></i> Bank on Your Terms with the Mobile App</h3>
+                    <p>Deposit checks, pay bills, and get real-time assistance with Erica—all from your phone.</p>
+                </div>
+                <a href="pages/digital-banking.html" class="btn btn-primary btn-lg"><i class="fas fa-download"></i> Download the App</a>
+            </div>
+        </section>
+
+        <section class="callout-section">
+            <div class="container">
+                <div class="security-card">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-alt primary-color"></i>
+                    </div>
+                    <div class="security-content">
+                        <span class="security-tag">YOUR PROTECTION</span>
+                        <h2>Protected by the Prosperity Bank Security Center</h2>
+                        <p>We use advanced encryption and proactive fraud monitoring to keep your money and identity safe 24/7. Learn how to protect yourself.</p>
+                        <a href="pages/security.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-lock"></i> Visit Security Center
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-brand">
+                    <a href="./index.html" class="logo">
+                        <i class="fas fa-money-bill-wave logo-icon"></i>
+                        <span class="logo-text">Pros<span>perity</span>Bank</span>
+                    </a>
+                    <p>Helping make financial lives better through the power of every connection. Contact us today.</p>
+                    <a href="tel:+1 (773) 677-0845" class="footer-contact-link"><i class="fas fa-phone"></i> +1 (773) 677-0845</a>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Products & Services</h4>
+                    <ul>
+                        <li><a href="./pages/personal-banking.html">Personal Banking</a></li>
+                        <li><a href="./pages/business-banking.html">Business Services</a></li>
+                        <li><a href="./pages/wealth-management.html">Merrill Lynch Investments</a></li>
+                        <li><a href="./pages/personal-banking.html#credit-cards">Credit Cards</a></li>
+                        <li><a href="./pages/personal-banking.html#loans">Home & Auto Loans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support & Legal</h4>
+                    <ul>
+                        <li><a href="./pages/contact-support.html">Contact & FAQ</a></li>
+                        <li><a href="./pages/security.html">Security Center</a></li>
+                        <li><a href="./pages/404.html">Branch/ATM Locator</a></li>
+                        <li><a href="#">Privacy Notice</a></li>
+                        <li><a href="#">Online Access Agreement</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>About Prosperity Bank</h4>
+                    <ul>
+                        <li><a href="./pages/about.html">Our History</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News & Press</a></li>
+                        <li><a href="#">Community Initiatives</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="disclosures">
+                    <p>Prosperity Bank, N.A. Member FDIC. Equal Housing Lender. © 2008 Prosperity Bank Corporation. All rights reserved.</p>
+                    <div class="compliance-icons">
+                        <span title="FDIC Insured"><i class="fas fa-landmark"></i> FDIC Insured</span>
+                        <span title="Equal Housing Lender"><i class="fas fa-home"></i> Equal Housing Lender</span>
+                        <span title="Secure Banking"><i class="fas fa-lock"></i> Secure Banking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="assistant-btn" id="assistantBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="assistant-modal" id="assistantModal">
+        <div class="assistant-header">
+            <h4><i class="fas fa-comment-dots"></i> Talk to Erica</h4>
+            <button class="chat-close-btn" id="chatCloseBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="assistant-body" id="assistantBody">
+            <div class="assistant-message bot">Hello! I'm Erica, your virtual financial assistant. How can I help you today?</div>
+        </div>
+        <div class="assistant-footer">
+            <input type="text" id="chatInput" placeholder="Ask a question..." required>
+            <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-header">
+                <h3>Search Prosperity Bank</h3>
+                <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); window.location.href = './pages/search-results.html?query=' + document.getElementById('searchModalInput').value;" class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="What are you looking for? (e.g., ESG goals, mortgage rates)" id="searchModalInput">
+            </form>
+            <div class="search-suggestions">
+                <h4>Popular Searches</h4>
+                <a href="./pages/digital-banking.html">Mobile banking app</a>
+                <a href="./pages/personal-banking.html#credit-cards">Credit card offers</a>
+                <a href="./pages/personal-banking.html#loans">Mortgage rates</a>
+                <a href="./pages/wealth-management.html">Investment accounts</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-menu">
+            <a href="./index.html" class="nav-link">Home</a>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-user"></i> Personal <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./pages/personal-banking.html#checking">Checking & Savings</a>
+                    <a href="./pages/personal-banking.html#credit-cards">Credit Cards</a>
+                    <a href="./pages/personal-banking.html#loans">Home & Auto Loans</a>
+                    <a href="./pages/personal-banking.html#calculator">Mortgage Calculator</a>
+                </div>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-briefcase"></i> Business <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                <div class="mobile-dropdown-content">
+                    <a href="./pages/business-banking.html#checking">Business Accounts</a>
+                    <a href="./pages/business-banking.html#loans">Business Loans</a>
+                    <a href="./pages/business-banking.html#merchant">Merchant Services</a>
+                </div>
+            </div>
+
+            <a href="./pages/wealth-management.html" class="nav-link"><i class="fas fa-chart-line"></i> Wealth Management</a>
+            <a href="./pages/digital-banking.html" class="nav-link"><i class="fas fa-mobile-alt"></i> Digital Banking</a>
+            <a href="./pages/about.html" class="nav-link"><i class="fas fa-building"></i> About Us</a>
+            <a href="./pages/security.html" class="nav-link"><i class="fas fa-shield-alt"></i> Security Center</a>
+        </div>
+        <div class="mobile-nav-right">
+            <a href="./pages/login.html" class="btn btn-outline btn-full-width">Sign In</a>
+            <a href="./pages/enroll.html" class="btn btn-secondary btn-full-width">Enroll Now</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
